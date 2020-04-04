@@ -19,7 +19,7 @@ int main()
 	unsigned int j = 0; // iterator to track non-zeros
     for (unsigned int i = 0; i < nums.size(); i++)
     {
-        if (nums[i] > 0) //non-zeros
+        if (nums[i] != 0) //non-zeros
         {
             nums[j] = nums[i]; // move to next free non-zero spot
             j++;
