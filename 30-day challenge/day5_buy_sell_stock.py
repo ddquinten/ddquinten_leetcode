@@ -11,15 +11,15 @@ def maxProfit(prices) -> int:
 			profit += (prices[i] - prices[i-1])
 	return profit;
 	
-prices = [7, 1, 5, 3, 6, 4]; # given test data
+prices = [7, 1, 5, 3, 6, 4]; # given test data should output 7
 
 print (maxProfit(prices));
 
-prices = [1, 2, 3, 4, 5]; # given test data
+prices = [1, 2, 3, 4, 5]; # given test data should output 4
 
 print (maxProfit(prices));
 
-prices = [7, 6, 4, 3, 1]; # given test data
+prices = [7, 6, 4, 3, 1]; # given test data should output 0
 
 print (maxProfit(prices));		
 
