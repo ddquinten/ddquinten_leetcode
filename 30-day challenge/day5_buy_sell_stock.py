@@ -21,5 +21,5 @@ print (maxProfit(prices));
 
 prices = [7, 6, 4, 3, 1]; # given test data should output 0
 
-print (maxProfit(prices));		
+print (maxProfit(prices));
 
