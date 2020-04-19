@@ -73,8 +73,8 @@ public class day17_number_of_islands
         visited[i][j] = true; // otherwise, new unvisited land 
 
         // Only need to check horizonally and vertically
-        checkAdjacent(grid, visited, i + 1, j); // up
-        checkAdjacent(grid, visited, i - 1, j); // down
+        checkAdjacent(grid, visited, i + 1, j); // down
+        checkAdjacent(grid, visited, i - 1, j); // up
         checkAdjacent(grid, visited, i, j + 1); // right
         checkAdjacent(grid, visited, i, j - 1); // left
         return;
