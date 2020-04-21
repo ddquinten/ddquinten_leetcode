@@ -23,8 +23,7 @@ struct TreeNode
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
  
-class Solution
-{
+class Solution {
 public:
     TreeNode* bstFromPreorder(vector<int>& preorder) 
     {
@@ -39,25 +38,23 @@ public:
 
         TreeNode* root = NULL;
       
-        if(min < current && current < max) // current belongs in the range, add to BST
+        if (min < current && current < max) // current belongs in the range, add to BST
         {
             root = new TreeNode(current);
             index++;
             
-            if (index < arr.size())
-            {
+            if (index < arr.size()) // Incase no more values left in vector
                 root->left = buildBST (arr, min, current, arr[index]); // max value is current, because it is now the parent
                 // By nature of preorder when we return, 
                 // we can assume all values that belong left of current node are there
+            if(index < arr.size()) // Still have to check b/c return from left side
                 root->right = buildBST (arr, current, max, arr[index]); // min value is current, because it is now the parent
-            }
         }
-        
         return root;
     }
 private:
     int index;
-}
+};
 
 int main()
 {
@@ -70,3 +67,40 @@ int main()
 	return 0;
 }
 
+
+/*
+Fastest c++ submission on leetcode NOT MINE
+Just wanted to study - beat me by 8ms
+
+class Solution {
+
+public:
+    TreeNode* bstFromPreorder(vector<int>& preorder) {
+        if (preorder.size() == 0) 
+            return NULL;
+
+        TreeNode* root = new TreeNode(preorder[0]);
+        stack<TreeNode*> s;
+        s.push(root);
+
+        for(int i = 1; i < preorder.size(); i++){
+            if(s.top()->val > preorder[i]){
+                TreeNode * temp = new TreeNode(preorder[i]);
+                s.top()->left = temp;
+                s.push(temp); 
+            }else {
+                TreeNode* child = NULL;
+                while(!s.empty()
+                      &&s.top()->val < preorder[i]){
+                    child = s.top();
+                    s.pop();
+                }
+                TreeNode * newNode = new TreeNode(preorder[i]);
+                child->right = newNode;
+                s.push(newNode);
+            }
+        }
+        return root;
+    }
+};
+*/
