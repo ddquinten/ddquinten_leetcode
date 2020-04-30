@@ -1,4 +1,4 @@
-// Leetcode 30-day day 29
+// Leetcode 30-day day 30 - finally over
 // Description from leetcode
 /* Given a binary tree where each path going from the root to any leaf form a valid sequence, 
 check if a given string is a valid sequence in such binary tree. 
